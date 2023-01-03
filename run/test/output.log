@@ -1,0 +1,815 @@
+=> parse the args ...
+{'arc_scale': 64,
+ 'arch': 'iresnet18',
+ 'batch_size': 512,
+ 'embedding_size': 512,
+ 'epochs': 25,
+ 'l_a': 10.0,
+ 'l_margin': 0.45,
+ 'lambda_g': 35.0,
+ 'last_fc_size': 85742,
+ 'lr': 0.1,
+ 'lr_drop_epoch': [10, 18, 22],
+ 'lr_drop_ratio': 0.1,
+ 'momentum': 0.9,
+ 'print_freq': 100,
+ 'pth_save_epoch': 1,
+ 'pth_save_fold': './test/',
+ 'start_epoch': 0,
+ 'train_list': '/home/FaceRocg/MagFace/dataloader/face_train_CASIA_WebFace.list',
+ 'u_a': 110.0,
+ 'u_margin': 0.8,
+ 'vis_mag': 1,
+ 'weight_decay': 0.0005,
+ 'workers': 8}
+min lambda g is 22.586666666666673, currrent lambda is 35.0
+=> torch version : 1.8.1+cu111
+=> ngpus : 2
+=> modeling the network ...
+=> building the oprimizer ...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0005
+)
+=> building the dataloader ...
+=> building the criterion ...
+=> starting training engine ...
+2022-12-28 07:16:32.090 | INFO     | utils.utils:display:55 - Epoch: [0][  0/958]	Time 10.476 (10.476)	Data  1.471 ( 1.471)	ThroughPut 48.87 (48.87)	images/s	Loss 32.409 (32.409)	L_ID 30.719 (30.719)	L_mag 1.690619 (1.690619)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 22.22 min: 14.40 max: 48.24
+  [debug info]: margin mean: 0.49 min: 0.47 max: 0.58
+2022-12-28 07:17:35.580 | INFO     | utils.utils:display:55 - Epoch: [0][100/958]	Time  0.638 ( 0.729)	Data  0.000 ( 0.015)	ThroughPut 802.75 (805.02)	images/s	Loss 37.735 (35.661)	L_ID 35.527 (33.655)	L_mag 2.207905 (2.005987)	Acc@1   0.59 (  0.43)	Acc@5   2.15 (  1.31)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 17.28 min: 10.99 max: 94.12
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.74
+2022-12-28 07:18:39.474 | INFO     | utils.utils:display:55 - Epoch: [0][200/958]	Time  0.639 ( 0.684)	Data  0.000 ( 0.010)	ThroughPut 801.34 (803.23)	images/s	Loss 39.567 (37.261)	L_ID 36.999 (35.057)	L_mag 2.568017 (2.204426)	Acc@1   4.69 (  1.28)	Acc@5   8.20 (  3.22)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.10 min: 10.00 max: 23.73
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:19:43.517 | INFO     | utils.utils:display:55 - Epoch: [0][300/958]	Time  0.643 ( 0.670)	Data  0.000 ( 0.008)	ThroughPut 796.41 (801.98)	images/s	Loss 39.096 (37.999)	L_ID 36.321 (35.627)	L_mag 2.774866 (2.371715)	Acc@1   9.18 (  2.78)	Acc@5  14.65 (  5.94)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.93 min: 10.00 max: 17.54
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:20:47.536 | INFO     | utils.utils:display:55 - Epoch: [0][400/958]	Time  0.638 ( 0.662)	Data  0.000 ( 0.007)	ThroughPut 802.55 (801.41)	images/s	Loss 38.050 (38.199)	L_ID 35.249 (35.722)	L_mag 2.800356 (2.476782)	Acc@1  16.21 (  4.99)	Acc@5  25.59 (  9.45)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.81 min: 10.00 max: 17.27
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:21:51.725 | INFO     | utils.utils:display:55 - Epoch: [0][500/958]	Time  0.641 ( 0.658)	Data  0.000 ( 0.006)	ThroughPut 798.58 (800.69)	images/s	Loss 37.398 (38.094)	L_ID 34.583 (35.551)	L_mag 2.815733 (2.543031)	Acc@1  22.27 (  7.74)	Acc@5  30.86 ( 13.34)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.75 min: 10.00 max: 17.71
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:22:55.922 | INFO     | utils.utils:display:55 - Epoch: [0][600/958]	Time  0.641 ( 0.655)	Data  0.000 ( 0.006)	ThroughPut 798.14 (800.17)	images/s	Loss 35.393 (37.812)	L_ID 32.575 (35.223)	L_mag 2.817962 (2.588571)	Acc@1  30.66 ( 10.85)	Acc@5  43.36 ( 17.39)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.73 min: 10.00 max: 16.97
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.47
+2022-12-28 07:24:00.148 | INFO     | utils.utils:display:55 - Epoch: [0][700/958]	Time  0.646 ( 0.654)	Data  0.000 ( 0.006)	ThroughPut 793.09 (799.75)	images/s	Loss 33.815 (37.406)	L_ID 30.982 (34.784)	L_mag 2.832568 (2.621828)	Acc@1  38.67 ( 14.15)	Acc@5  52.34 ( 21.46)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.68 min: 10.00 max: 18.04
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:25:04.354 | INFO     | utils.utils:display:55 - Epoch: [0][800/958]	Time  0.640 ( 0.652)	Data  0.000 ( 0.006)	ThroughPut 799.74 (799.46)	images/s	Loss 32.661 (36.878)	L_ID 29.827 (34.231)	L_mag 2.834467 (2.647707)	Acc@1  45.90 ( 17.63)	Acc@5  55.66 ( 25.53)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.66 min: 10.00 max: 18.04
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:26:08.335 | INFO     | utils.utils:display:55 - Epoch: [0][900/958]	Time  0.636 ( 0.651)	Data  0.000 ( 0.005)	ThroughPut 805.14 (799.54)	images/s	Loss 30.920 (36.276)	L_ID 28.090 (33.607)	L_mag 2.829710 (2.668274)	Acc@1  52.54 ( 21.12)	Acc@5  64.84 ( 29.45)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.67 min: 10.00 max: 17.30
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+ : save pth for epoch 1
+2022-12-28 07:26:47.156 | INFO     | utils.utils:display:55 - Epoch: [1][  0/958]	Time  0.953 ( 0.953)	Data  0.691 ( 0.691)	ThroughPut 537.27 (537.27)	images/s	Loss 27.782 (27.782)	L_ID 24.958 (24.958)	L_mag 2.823580 (2.823580)	Acc@1  64.65 ( 64.65)	Acc@5  75.20 ( 75.20)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.68 min: 10.00 max: 17.73
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:27:51.325 | INFO     | utils.utils:display:55 - Epoch: [1][100/958]	Time  0.641 ( 0.645)	Data  0.000 ( 0.011)	ThroughPut 798.18 (795.47)	images/s	Loss 27.487 (27.883)	L_ID 24.652 (25.049)	L_mag 2.835560 (2.834292)	Acc@1  66.80 ( 63.20)	Acc@5  74.22 ( 73.42)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.67 min: 10.00 max: 16.83
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.47
+2022-12-28 07:28:55.519 | INFO     | utils.utils:display:55 - Epoch: [1][200/958]	Time  0.638 ( 0.643)	Data  0.000 ( 0.008)	ThroughPut 802.44 (796.56)	images/s	Loss 25.977 (27.392)	L_ID 23.153 (24.559)	L_mag 2.823941 (2.832667)	Acc@1  71.48 ( 64.56)	Acc@5  78.52 ( 74.42)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.72 min: 10.00 max: 17.86
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:29:59.694 | INFO     | utils.utils:display:55 - Epoch: [1][300/958]	Time  0.640 ( 0.643)	Data  0.000 ( 0.006)	ThroughPut 800.08 (796.98)	images/s	Loss 25.455 (26.854)	L_ID 22.641 (24.026)	L_mag 2.814410 (2.828560)	Acc@1  70.90 ( 65.92)	Acc@5  78.32 ( 75.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.81 min: 10.00 max: 18.01
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:31:03.885 | INFO     | utils.utils:display:55 - Epoch: [1][400/958]	Time  0.640 ( 0.643)	Data  0.000 ( 0.006)	ThroughPut 800.61 (797.15)	images/s	Loss 23.509 (26.342)	L_ID 20.703 (23.517)	L_mag 2.805626 (2.824127)	Acc@1  74.22 ( 67.25)	Acc@5  81.84 ( 76.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.84 min: 10.00 max: 18.03
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:32:08.054 | INFO     | utils.utils:display:55 - Epoch: [1][500/958]	Time  0.643 ( 0.642)	Data  0.000 ( 0.006)	ThroughPut 796.01 (797.29)	images/s	Loss 23.799 (25.885)	L_ID 21.004 (23.065)	L_mag 2.795738 (2.820269)	Acc@1  73.83 ( 68.39)	Acc@5  81.64 ( 77.25)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.88 min: 10.00 max: 19.86
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:33:12.007 | INFO     | utils.utils:display:55 - Epoch: [1][600/958]	Time  0.634 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 807.91 (797.85)	images/s	Loss 22.179 (25.450)	L_ID 19.388 (22.634)	L_mag 2.790434 (2.816586)	Acc@1  78.32 ( 69.46)	Acc@5  83.20 ( 78.05)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 12.93 min: 10.00 max: 19.43
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:34:15.898 | INFO     | utils.utils:display:55 - Epoch: [1][700/958]	Time  0.638 ( 0.641)	Data  0.000 ( 0.005)	ThroughPut 802.99 (798.35)	images/s	Loss 23.068 (25.032)	L_ID 20.289 (22.220)	L_mag 2.779870 (2.812330)	Acc@1  76.37 ( 70.44)	Acc@5  82.42 ( 78.75)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.01 min: 10.00 max: 23.08
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:35:19.874 | INFO     | utils.utils:display:55 - Epoch: [1][800/958]	Time  0.639 ( 0.641)	Data  0.000 ( 0.005)	ThroughPut 800.64 (798.61)	images/s	Loss 20.650 (24.658)	L_ID 17.879 (21.850)	L_mag 2.770546 (2.808052)	Acc@1  79.88 ( 71.29)	Acc@5  86.33 ( 79.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.07 min: 10.00 max: 20.05
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:36:24.023 | INFO     | utils.utils:display:55 - Epoch: [1][900/958]	Time  0.644 ( 0.641)	Data  0.000 ( 0.005)	ThroughPut 794.89 (798.55)	images/s	Loss 21.047 (24.306)	L_ID 18.281 (21.502)	L_mag 2.766530 (2.803541)	Acc@1  77.73 ( 72.08)	Acc@5  85.55 ( 79.96)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.09 min: 10.00 max: 19.67
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+ : save pth for epoch 2
+2022-12-28 07:37:02.751 | INFO     | utils.utils:display:55 - Epoch: [2][  0/958]	Time  0.772 ( 0.772)	Data  0.503 ( 0.503)	ThroughPut 663.42 (663.42)	images/s	Loss 19.631 (19.631)	L_ID 16.875 (16.875)	L_mag 2.756084 (2.756084)	Acc@1  83.59 ( 83.59)	Acc@5  88.09 ( 88.09)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.13 min: 10.00 max: 20.65
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:38:06.658 | INFO     | utils.utils:display:55 - Epoch: [2][100/958]	Time  0.643 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 796.31 (800.02)	images/s	Loss 20.151 (19.588)	L_ID 17.401 (16.844)	L_mag 2.750008 (2.744154)	Acc@1  82.03 ( 82.75)	Acc@5  86.72 ( 87.61)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.21 min: 10.00 max: 25.49
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:39:10.597 | INFO     | utils.utils:display:55 - Epoch: [2][200/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 802.60 (800.40)	images/s	Loss 19.782 (19.649)	L_ID 17.043 (16.907)	L_mag 2.739414 (2.742451)	Acc@1  80.66 ( 82.64)	Acc@5  84.57 ( 87.54)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.23 min: 10.00 max: 19.53
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:40:14.515 | INFO     | utils.utils:display:55 - Epoch: [2][300/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 798.61 (800.62)	images/s	Loss 19.882 (19.708)	L_ID 17.136 (16.966)	L_mag 2.745454 (2.741789)	Acc@1  78.71 ( 82.39)	Acc@5  85.74 ( 87.37)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.25 min: 10.00 max: 20.87
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:41:18.438 | INFO     | utils.utils:display:55 - Epoch: [2][400/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 800.35 (800.71)	images/s	Loss 19.763 (19.666)	L_ID 17.036 (16.926)	L_mag 2.726491 (2.740227)	Acc@1  81.25 ( 82.39)	Acc@5  88.09 ( 87.39)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.30 min: 10.00 max: 21.83
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:42:22.395 | INFO     | utils.utils:display:55 - Epoch: [2][500/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 799.81 (800.68)	images/s	Loss 19.612 (19.646)	L_ID 16.882 (16.907)	L_mag 2.729688 (2.738174)	Acc@1  82.62 ( 82.37)	Acc@5  87.11 ( 87.34)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.30 min: 10.00 max: 27.52
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.51
+2022-12-28 07:43:26.295 | INFO     | utils.utils:display:55 - Epoch: [2][600/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.95 (800.78)	images/s	Loss 19.218 (19.568)	L_ID 16.504 (16.833)	L_mag 2.714361 (2.735323)	Acc@1  84.77 ( 82.46)	Acc@5  89.26 ( 87.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.38 min: 10.00 max: 23.93
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:44:30.217 | INFO     | utils.utils:display:55 - Epoch: [2][700/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.87 (800.81)	images/s	Loss 18.937 (19.510)	L_ID 16.226 (16.777)	L_mag 2.711574 (2.732446)	Acc@1  84.77 ( 82.52)	Acc@5  88.67 ( 87.42)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.39 min: 10.00 max: 23.12
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:45:34.130 | INFO     | utils.utils:display:55 - Epoch: [2][800/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.15 (800.85)	images/s	Loss 18.549 (19.459)	L_ID 15.830 (16.729)	L_mag 2.718305 (2.730621)	Acc@1  84.38 ( 82.57)	Acc@5  90.04 ( 87.47)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.38 min: 10.00 max: 20.37
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:46:38.032 | INFO     | utils.utils:display:55 - Epoch: [2][900/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.90 (800.89)	images/s	Loss 18.957 (19.394)	L_ID 16.247 (16.665)	L_mag 2.710271 (2.729125)	Acc@1  83.20 ( 82.67)	Acc@5  87.50 ( 87.52)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.41 min: 10.00 max: 22.65
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 3
+2022-12-28 07:47:16.579 | INFO     | utils.utils:display:55 - Epoch: [3][  0/958]	Time  0.772 ( 0.772)	Data  0.504 ( 0.504)	ThroughPut 663.47 (663.47)	images/s	Loss 17.023 (17.023)	L_ID 14.313 (14.313)	L_mag 2.710431 (2.710431)	Acc@1  88.48 ( 88.48)	Acc@5  91.41 ( 91.41)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.44 min: 10.00 max: 23.85
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:48:20.425 | INFO     | utils.utils:display:55 - Epoch: [3][100/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 804.23 (800.83)	images/s	Loss 17.903 (17.248)	L_ID 15.220 (14.559)	L_mag 2.682685 (2.688416)	Acc@1  84.96 ( 86.39)	Acc@5  89.06 ( 90.16)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.57 min: 10.00 max: 20.60
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:49:24.281 | INFO     | utils.utils:display:55 - Epoch: [3][200/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 802.35 (801.33)	images/s	Loss 17.779 (17.467)	L_ID 15.073 (14.781)	L_mag 2.706605 (2.686914)	Acc@1  84.96 ( 86.09)	Acc@5  88.87 ( 89.94)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.51 min: 10.00 max: 21.04
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:50:28.204 | INFO     | utils.utils:display:55 - Epoch: [3][300/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 800.31 (801.24)	images/s	Loss 17.614 (17.603)	L_ID 14.932 (14.916)	L_mag 2.681992 (2.686896)	Acc@1  85.16 ( 85.78)	Acc@5  89.06 ( 89.72)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.57 min: 10.00 max: 19.39
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:51:32.335 | INFO     | utils.utils:display:55 - Epoch: [3][400/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 797.01 (800.52)	images/s	Loss 18.418 (17.696)	L_ID 15.726 (15.010)	L_mag 2.691693 (2.686925)	Acc@1  85.35 ( 85.61)	Acc@5  89.45 ( 89.60)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.54 min: 10.00 max: 21.56
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:52:36.482 | INFO     | utils.utils:display:55 - Epoch: [3][500/958]	Time  0.644 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 795.11 (800.06)	images/s	Loss 18.682 (17.764)	L_ID 15.990 (15.077)	L_mag 2.692098 (2.687291)	Acc@1  82.62 ( 85.48)	Acc@5  88.28 ( 89.50)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.54 min: 10.00 max: 22.59
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:53:40.609 | INFO     | utils.utils:display:55 - Epoch: [3][600/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 799.34 (799.79)	images/s	Loss 17.050 (17.781)	L_ID 14.368 (15.094)	L_mag 2.681526 (2.687144)	Acc@1  86.13 ( 85.45)	Acc@5  89.65 ( 89.48)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.57 min: 10.00 max: 20.05
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:54:44.727 | INFO     | utils.utils:display:55 - Epoch: [3][700/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 799.02 (799.61)	images/s	Loss 18.304 (17.801)	L_ID 15.621 (15.114)	L_mag 2.683559 (2.686818)	Acc@1  83.79 ( 85.36)	Acc@5  88.09 ( 89.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.57 min: 10.00 max: 20.59
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:55:48.846 | INFO     | utils.utils:display:55 - Epoch: [3][800/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 799.24 (799.47)	images/s	Loss 17.154 (17.800)	L_ID 14.488 (15.114)	L_mag 2.666256 (2.686491)	Acc@1  87.70 ( 85.34)	Acc@5  90.62 ( 89.36)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.62 min: 10.00 max: 19.66
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 07:56:52.985 | INFO     | utils.utils:display:55 - Epoch: [3][900/958]	Time  0.641 ( 0.641)	Data  0.000 ( 0.005)	ThroughPut 799.21 (799.34)	images/s	Loss 17.062 (17.804)	L_ID 14.379 (15.118)	L_mag 2.682929 (2.685666)	Acc@1  85.16 ( 85.32)	Acc@5  88.67 ( 89.34)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.60 min: 10.00 max: 20.51
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 4
+2022-12-28 07:57:31.679 | INFO     | utils.utils:display:55 - Epoch: [4][  0/958]	Time  0.770 ( 0.770)	Data  0.499 ( 0.499)	ThroughPut 664.87 (664.87)	images/s	Loss 15.584 (15.584)	L_ID 12.916 (12.916)	L_mag 2.668501 (2.668501)	Acc@1  88.48 ( 88.48)	Acc@5  92.19 ( 92.19)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.64 min: 10.00 max: 24.85
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 07:58:35.522 | INFO     | utils.utils:display:55 - Epoch: [4][100/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 803.75 (800.87)	images/s	Loss 16.575 (16.283)	L_ID 13.915 (13.627)	L_mag 2.660639 (2.656643)	Acc@1  88.09 ( 87.83)	Acc@5  91.41 ( 90.93)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.75 min: 10.00 max: 20.30
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 07:59:39.407 | INFO     | utils.utils:display:55 - Epoch: [4][200/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 802.58 (801.15)	images/s	Loss 18.180 (16.560)	L_ID 15.520 (13.903)	L_mag 2.660149 (2.657017)	Acc@1  83.59 ( 87.49)	Acc@5  88.87 ( 90.74)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.69 min: 10.00 max: 21.31
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:00:43.317 | INFO     | utils.utils:display:55 - Epoch: [4][300/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 804.51 (801.15)	images/s	Loss 17.425 (16.741)	L_ID 14.755 (14.081)	L_mag 2.670515 (2.659959)	Acc@1  85.16 ( 87.20)	Acc@5  88.09 ( 90.59)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.66 min: 10.00 max: 20.67
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:01:47.211 | INFO     | utils.utils:display:55 - Epoch: [4][400/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.47 (801.19)	images/s	Loss 17.262 (16.843)	L_ID 14.596 (14.181)	L_mag 2.666062 (2.661945)	Acc@1  88.48 ( 87.03)	Acc@5  91.21 ( 90.49)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.68 min: 10.00 max: 21.23
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:02:51.093 | INFO     | utils.utils:display:55 - Epoch: [4][500/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.21 (801.27)	images/s	Loss 17.418 (16.913)	L_ID 14.759 (14.251)	L_mag 2.659033 (2.662198)	Acc@1  86.91 ( 86.87)	Acc@5  89.45 ( 90.38)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.70 min: 10.00 max: 22.62
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:03:54.974 | INFO     | utils.utils:display:55 - Epoch: [4][600/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.25 (801.30)	images/s	Loss 16.845 (16.941)	L_ID 14.193 (14.280)	L_mag 2.652602 (2.661768)	Acc@1  86.72 ( 86.79)	Acc@5  89.84 ( 90.33)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.74 min: 10.00 max: 21.36
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:04:58.878 | INFO     | utils.utils:display:55 - Epoch: [4][700/958]	Time  0.634 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 807.60 (801.30)	images/s	Loss 16.680 (16.973)	L_ID 14.024 (14.312)	L_mag 2.656438 (2.661030)	Acc@1  86.52 ( 86.71)	Acc@5  90.04 ( 90.27)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.72 min: 10.00 max: 26.91
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.51
+2022-12-28 08:06:02.775 | INFO     | utils.utils:display:55 - Epoch: [4][800/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 806.68 (801.30)	images/s	Loss 16.786 (16.991)	L_ID 14.137 (14.331)	L_mag 2.649247 (2.660398)	Acc@1  85.16 ( 86.65)	Acc@5  88.87 ( 90.23)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.78 min: 10.00 max: 21.46
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:07:06.674 | INFO     | utils.utils:display:55 - Epoch: [4][900/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 806.51 (801.29)	images/s	Loss 17.617 (16.999)	L_ID 14.952 (14.340)	L_mag 2.665683 (2.659445)	Acc@1  86.33 ( 86.62)	Acc@5  91.02 ( 90.20)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.73 min: 10.00 max: 20.74
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 5
+2022-12-28 08:07:45.240 | INFO     | utils.utils:display:55 - Epoch: [5][  0/958]	Time  0.774 ( 0.774)	Data  0.511 ( 0.511)	ThroughPut 661.36 (661.36)	images/s	Loss 14.949 (14.949)	L_ID 12.296 (12.296)	L_mag 2.652960 (2.652960)	Acc@1  89.26 ( 89.26)	Acc@5  91.21 ( 91.21)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.73 min: 10.00 max: 23.08
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:08:49.087 | INFO     | utils.utils:display:55 - Epoch: [5][100/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 802.86 (800.69)	images/s	Loss 15.690 (15.654)	L_ID 13.058 (13.024)	L_mag 2.632016 (2.630561)	Acc@1  89.65 ( 88.70)	Acc@5  92.38 ( 91.58)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.90 min: 10.00 max: 20.78
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:09:52.945 | INFO     | utils.utils:display:55 - Epoch: [5][200/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 798.42 (801.26)	images/s	Loss 15.417 (15.885)	L_ID 12.783 (13.253)	L_mag 2.633667 (2.632226)	Acc@1  88.67 ( 88.35)	Acc@5  91.21 ( 91.39)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.87 min: 10.00 max: 19.80
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 08:10:56.805 | INFO     | utils.utils:display:55 - Epoch: [5][300/958]	Time  0.633 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 809.00 (801.44)	images/s	Loss 15.887 (16.067)	L_ID 13.242 (13.432)	L_mag 2.644380 (2.635011)	Acc@1  88.67 ( 88.13)	Acc@5  91.21 ( 91.27)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.81 min: 10.00 max: 20.46
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:12:00.663 | INFO     | utils.utils:display:55 - Epoch: [5][400/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.12 (801.53)	images/s	Loss 16.936 (16.200)	L_ID 14.293 (13.563)	L_mag 2.642751 (2.636987)	Acc@1  85.94 ( 87.88)	Acc@5  88.28 ( 91.11)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.81 min: 10.00 max: 19.86
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 08:13:04.524 | INFO     | utils.utils:display:55 - Epoch: [5][500/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 806.00 (801.58)	images/s	Loss 17.449 (16.295)	L_ID 14.801 (13.656)	L_mag 2.647457 (2.638657)	Acc@1  84.77 ( 87.69)	Acc@5  88.28 ( 90.97)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.80 min: 10.00 max: 20.65
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:14:08.422 | INFO     | utils.utils:display:55 - Epoch: [5][600/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.30 (801.53)	images/s	Loss 16.725 (16.363)	L_ID 14.074 (13.723)	L_mag 2.650448 (2.640207)	Acc@1  86.13 ( 87.58)	Acc@5  89.26 ( 90.89)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.79 min: 10.00 max: 22.43
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:15:12.321 | INFO     | utils.utils:display:55 - Epoch: [5][700/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 804.99 (801.50)	images/s	Loss 16.975 (16.412)	L_ID 14.324 (13.771)	L_mag 2.651478 (2.641507)	Acc@1  86.33 ( 87.48)	Acc@5  89.45 ( 90.83)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.80 min: 10.00 max: 21.24
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:16:16.194 | INFO     | utils.utils:display:55 - Epoch: [5][800/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.10 (801.52)	images/s	Loss 17.188 (16.442)	L_ID 14.531 (13.801)	L_mag 2.657090 (2.641284)	Acc@1  85.35 ( 87.42)	Acc@5  89.45 ( 90.79)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.82 min: 10.00 max: 20.77
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:17:20.067 | INFO     | utils.utils:display:55 - Epoch: [5][900/958]	Time  0.632 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 810.06 (801.53)	images/s	Loss 16.485 (16.475)	L_ID 13.830 (13.834)	L_mag 2.655305 (2.641048)	Acc@1  87.30 ( 87.33)	Acc@5  89.65 ( 90.71)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.81 min: 10.00 max: 22.57
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 6
+2022-12-28 08:17:58.762 | INFO     | utils.utils:display:55 - Epoch: [6][  0/958]	Time  0.895 ( 0.895)	Data  0.650 ( 0.650)	ThroughPut 571.99 (571.99)	images/s	Loss 14.230 (14.230)	L_ID 11.588 (11.588)	L_mag 2.642398 (2.642398)	Acc@1  90.04 ( 90.04)	Acc@5  92.77 ( 92.77)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.83 min: 10.00 max: 20.75
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:19:02.622 | INFO     | utils.utils:display:55 - Epoch: [6][100/958]	Time  0.638 ( 0.641)	Data  0.000 ( 0.011)	ThroughPut 802.31 (799.54)	images/s	Loss 15.655 (15.377)	L_ID 13.046 (12.755)	L_mag 2.608936 (2.621871)	Acc@1  87.30 ( 88.92)	Acc@5  90.62 ( 91.77)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.01 min: 10.00 max: 22.16
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:20:06.500 | INFO     | utils.utils:display:55 - Epoch: [6][200/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 802.30 (800.54)	images/s	Loss 16.165 (15.666)	L_ID 13.529 (13.044)	L_mag 2.636075 (2.621987)	Acc@1  86.91 ( 88.46)	Acc@5  89.65 ( 91.49)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.91 min: 10.00 max: 21.84
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:21:10.358 | INFO     | utils.utils:display:55 - Epoch: [6][300/958]	Time  0.634 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 807.69 (800.97)	images/s	Loss 15.362 (15.806)	L_ID 12.733 (13.182)	L_mag 2.629449 (2.624005)	Acc@1  88.87 ( 88.37)	Acc@5  90.62 ( 91.45)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.88 min: 10.00 max: 23.45
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:22:14.230 | INFO     | utils.utils:display:55 - Epoch: [6][400/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 800.20 (801.12)	images/s	Loss 16.278 (15.903)	L_ID 13.641 (13.276)	L_mag 2.637140 (2.626855)	Acc@1  86.72 ( 88.25)	Acc@5  90.62 ( 91.37)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.87 min: 10.00 max: 21.22
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:23:18.075 | INFO     | utils.utils:display:55 - Epoch: [6][500/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.70 (801.30)	images/s	Loss 16.532 (15.965)	L_ID 13.886 (13.337)	L_mag 2.645865 (2.627766)	Acc@1  88.28 ( 88.17)	Acc@5  90.62 ( 91.28)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.88 min: 10.00 max: 20.17
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:24:21.922 | INFO     | utils.utils:display:55 - Epoch: [6][600/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.90 (801.39)	images/s	Loss 16.654 (16.008)	L_ID 14.011 (13.379)	L_mag 2.642836 (2.628304)	Acc@1  86.13 ( 88.10)	Acc@5  89.26 ( 91.24)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.86 min: 10.00 max: 20.51
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:25:25.798 | INFO     | utils.utils:display:55 - Epoch: [6][700/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 796.46 (801.43)	images/s	Loss 15.483 (16.062)	L_ID 12.853 (13.432)	L_mag 2.629830 (2.629031)	Acc@1  89.06 ( 88.01)	Acc@5  91.41 ( 91.17)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.90 min: 10.00 max: 20.58
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:26:29.697 | INFO     | utils.utils:display:55 - Epoch: [6][800/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.39 (801.42)	images/s	Loss 16.589 (16.090)	L_ID 13.961 (13.461)	L_mag 2.628090 (2.628554)	Acc@1  87.30 ( 87.94)	Acc@5  90.82 ( 91.12)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.92 min: 10.00 max: 26.59
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.51
+2022-12-28 08:27:33.580 | INFO     | utils.utils:display:55 - Epoch: [6][900/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.28 (801.42)	images/s	Loss 16.249 (16.122)	L_ID 13.633 (13.493)	L_mag 2.616690 (2.628551)	Acc@1  87.89 ( 87.87)	Acc@5  92.77 ( 91.07)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.92 min: 10.00 max: 20.93
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 7
+2022-12-28 08:28:12.226 | INFO     | utils.utils:display:55 - Epoch: [7][  0/958]	Time  0.868 ( 0.868)	Data  0.604 ( 0.604)	ThroughPut 590.01 (590.01)	images/s	Loss 15.586 (15.586)	L_ID 12.957 (12.957)	L_mag 2.629906 (2.629906)	Acc@1  88.48 ( 88.48)	Acc@5  91.02 ( 91.02)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.92 min: 10.00 max: 21.95
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:29:16.084 | INFO     | utils.utils:display:55 - Epoch: [7][100/958]	Time  0.639 ( 0.641)	Data  0.000 ( 0.010)	ThroughPut 801.52 (799.96)	images/s	Loss 15.217 (15.060)	L_ID 12.608 (12.455)	L_mag 2.609151 (2.605135)	Acc@1  88.28 ( 89.36)	Acc@5  90.62 ( 92.17)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.06 min: 10.00 max: 21.03
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:30:19.909 | INFO     | utils.utils:display:55 - Epoch: [7][200/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 805.62 (801.07)	images/s	Loss 15.447 (15.299)	L_ID 12.830 (12.692)	L_mag 2.616819 (2.606592)	Acc@1  88.48 ( 89.05)	Acc@5  90.82 ( 91.92)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.99 min: 10.00 max: 21.70
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:31:23.759 | INFO     | utils.utils:display:55 - Epoch: [7][300/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 797.89 (801.35)	images/s	Loss 16.581 (15.451)	L_ID 13.970 (12.841)	L_mag 2.610874 (2.609882)	Acc@1  87.30 ( 88.83)	Acc@5  90.23 ( 91.76)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.00 min: 10.00 max: 21.31
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:32:27.618 | INFO     | utils.utils:display:55 - Epoch: [7][400/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 805.13 (801.47)	images/s	Loss 16.894 (15.578)	L_ID 14.268 (12.965)	L_mag 2.625916 (2.612826)	Acc@1  85.35 ( 88.67)	Acc@5  89.45 ( 91.64)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.92 min: 10.00 max: 21.52
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:33:31.455 | INFO     | utils.utils:display:55 - Epoch: [7][500/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.47 (801.57)	images/s	Loss 16.208 (15.670)	L_ID 13.587 (13.055)	L_mag 2.621258 (2.615380)	Acc@1  88.28 ( 88.53)	Acc@5  91.60 ( 91.53)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.93 min: 10.00 max: 24.39
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:34:35.300 | INFO     | utils.utils:display:55 - Epoch: [7][600/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 798.19 (801.65)	images/s	Loss 16.005 (15.732)	L_ID 13.386 (13.115)	L_mag 2.618489 (2.616207)	Acc@1  87.89 ( 88.42)	Acc@5  90.82 ( 91.44)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.96 min: 10.00 max: 21.59
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:35:39.152 | INFO     | utils.utils:display:55 - Epoch: [7][700/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.66 (801.68)	images/s	Loss 16.339 (15.788)	L_ID 13.714 (13.171)	L_mag 2.624313 (2.616871)	Acc@1  86.33 ( 88.29)	Acc@5  90.43 ( 91.35)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.96 min: 10.00 max: 24.40
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:36:43.023 | INFO     | utils.utils:display:55 - Epoch: [7][800/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.13 (801.68)	images/s	Loss 16.978 (15.818)	L_ID 14.369 (13.201)	L_mag 2.609317 (2.617005)	Acc@1  87.50 ( 88.25)	Acc@5  89.65 ( 91.30)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.01 min: 10.00 max: 19.99
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.48
+2022-12-28 08:37:46.898 | INFO     | utils.utils:display:55 - Epoch: [7][900/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 804.49 (801.67)	images/s	Loss 16.618 (15.854)	L_ID 14.004 (13.237)	L_mag 2.614341 (2.617214)	Acc@1  87.89 ( 88.19)	Acc@5  91.21 ( 91.25)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.97 min: 10.00 max: 20.62
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+ : save pth for epoch 8
+2022-12-28 08:38:25.435 | INFO     | utils.utils:display:55 - Epoch: [8][  0/958]	Time  0.769 ( 0.769)	Data  0.502 ( 0.502)	ThroughPut 665.85 (665.85)	images/s	Loss 14.848 (14.848)	L_ID 12.228 (12.228)	L_mag 2.619472 (2.619472)	Acc@1  88.67 ( 88.67)	Acc@5  91.41 ( 91.41)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.99 min: 10.00 max: 22.00
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:39:29.326 | INFO     | utils.utils:display:55 - Epoch: [8][100/958]	Time  0.644 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 794.76 (800.36)	images/s	Loss 15.177 (14.829)	L_ID 12.588 (12.233)	L_mag 2.588375 (2.595685)	Acc@1  90.04 ( 89.75)	Acc@5  91.60 ( 92.34)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.12 min: 10.00 max: 21.86
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:40:33.221 | INFO     | utils.utils:display:55 - Epoch: [8][200/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 800.25 (800.82)	images/s	Loss 16.275 (15.035)	L_ID 13.673 (12.439)	L_mag 2.601695 (2.595899)	Acc@1  86.91 ( 89.41)	Acc@5  90.43 ( 92.12)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.09 min: 10.00 max: 25.33
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:41:37.135 | INFO     | utils.utils:display:55 - Epoch: [8][300/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 799.07 (800.93)	images/s	Loss 15.694 (15.211)	L_ID 13.089 (12.612)	L_mag 2.605071 (2.599183)	Acc@1  89.26 ( 89.25)	Acc@5  92.19 ( 91.96)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.04 min: 10.00 max: 22.10
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:42:41.065 | INFO     | utils.utils:display:55 - Epoch: [8][400/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.38 (800.93)	images/s	Loss 17.128 (15.344)	L_ID 14.505 (12.742)	L_mag 2.622810 (2.602099)	Acc@1  85.74 ( 89.03)	Acc@5  89.65 ( 91.82)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.98 min: 10.00 max: 26.56
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.51
+2022-12-28 08:43:45.160 | INFO     | utils.utils:display:55 - Epoch: [8][500/958]	Time  0.643 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 796.08 (800.51)	images/s	Loss 15.816 (15.445)	L_ID 13.201 (12.840)	L_mag 2.614469 (2.604961)	Acc@1  89.26 ( 88.85)	Acc@5  90.82 ( 91.69)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.96 min: 10.00 max: 21.70
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:44:49.337 | INFO     | utils.utils:display:55 - Epoch: [8][600/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 801.23 (800.06)	images/s	Loss 16.225 (15.500)	L_ID 13.616 (12.893)	L_mag 2.608939 (2.607006)	Acc@1  87.30 ( 88.74)	Acc@5  89.84 ( 91.62)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.03 min: 10.00 max: 22.19
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:45:53.504 | INFO     | utils.utils:display:55 - Epoch: [8][700/958]	Time  0.644 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 794.79 (799.76)	images/s	Loss 15.857 (15.556)	L_ID 13.231 (12.948)	L_mag 2.626340 (2.607548)	Acc@1  88.09 ( 88.64)	Acc@5  91.21 ( 91.56)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.97 min: 10.00 max: 21.65
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:46:57.656 | INFO     | utils.utils:display:55 - Epoch: [8][800/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 797.75 (799.56)	images/s	Loss 15.488 (15.609)	L_ID 12.859 (13.001)	L_mag 2.628945 (2.608511)	Acc@1  87.50 ( 88.55)	Acc@5  93.36 ( 91.50)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.97 min: 10.00 max: 21.82
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:48:01.818 | INFO     | utils.utils:display:55 - Epoch: [8][900/958]	Time  0.640 ( 0.641)	Data  0.000 ( 0.005)	ThroughPut 800.30 (799.38)	images/s	Loss 16.606 (15.646)	L_ID 13.992 (13.038)	L_mag 2.614656 (2.608762)	Acc@1  88.67 ( 88.47)	Acc@5  92.19 ( 91.46)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.00 min: 10.00 max: 24.70
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+ : save pth for epoch 9
+2022-12-28 08:48:40.542 | INFO     | utils.utils:display:55 - Epoch: [9][  0/958]	Time  0.775 ( 0.775)	Data  0.512 ( 0.512)	ThroughPut 660.54 (660.54)	images/s	Loss 13.635 (13.635)	L_ID 11.009 (11.009)	L_mag 2.626068 (2.626068)	Acc@1  91.99 ( 91.99)	Acc@5  93.55 ( 93.55)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 13.99 min: 10.00 max: 21.34
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:49:44.416 | INFO     | utils.utils:display:55 - Epoch: [9][100/958]	Time  0.635 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 806.52 (800.45)	images/s	Loss 15.179 (14.688)	L_ID 12.590 (12.101)	L_mag 2.589119 (2.587119)	Acc@1  90.62 ( 89.94)	Acc@5  92.97 ( 92.33)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.17 min: 10.00 max: 21.29
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:50:48.308 | INFO     | utils.utils:display:55 - Epoch: [9][200/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 803.37 (800.90)	images/s	Loss 14.966 (14.903)	L_ID 12.367 (12.314)	L_mag 2.598967 (2.589231)	Acc@1  90.23 ( 89.59)	Acc@5  93.75 ( 92.15)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.10 min: 10.00 max: 21.42
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:51:52.171 | INFO     | utils.utils:display:55 - Epoch: [9][300/958]	Time  0.644 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 795.19 (801.17)	images/s	Loss 16.596 (15.070)	L_ID 13.987 (12.476)	L_mag 2.609053 (2.593654)	Acc@1  87.30 ( 89.42)	Acc@5  89.65 ( 92.07)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.04 min: 10.00 max: 21.32
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:52:56.035 | INFO     | utils.utils:display:55 - Epoch: [9][400/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.22 (801.30)	images/s	Loss 15.586 (15.206)	L_ID 12.984 (12.608)	L_mag 2.601991 (2.597472)	Acc@1  87.70 ( 89.23)	Acc@5  90.82 ( 91.96)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.03 min: 10.00 max: 20.13
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:53:59.923 | INFO     | utils.utils:display:55 - Epoch: [9][500/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.47 (801.33)	images/s	Loss 16.008 (15.302)	L_ID 13.391 (12.702)	L_mag 2.616362 (2.600591)	Acc@1  87.89 ( 89.09)	Acc@5  91.99 ( 91.86)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.00 min: 10.00 max: 23.89
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:55:03.793 | INFO     | utils.utils:display:55 - Epoch: [9][600/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.24 (801.38)	images/s	Loss 16.206 (15.347)	L_ID 13.596 (12.746)	L_mag 2.610176 (2.601330)	Acc@1  86.33 ( 88.98)	Acc@5  90.43 ( 91.79)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.07 min: 10.00 max: 25.23
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:56:07.653 | INFO     | utils.utils:display:55 - Epoch: [9][700/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.27 (801.44)	images/s	Loss 16.026 (15.403)	L_ID 13.419 (12.802)	L_mag 2.606328 (2.601163)	Acc@1  87.70 ( 88.89)	Acc@5  91.21 ( 91.71)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.06 min: 10.00 max: 21.22
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:57:11.508 | INFO     | utils.utils:display:55 - Epoch: [9][800/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.63 (801.49)	images/s	Loss 15.581 (15.458)	L_ID 12.974 (12.856)	L_mag 2.606215 (2.602118)	Acc@1  88.09 ( 88.79)	Acc@5  91.21 ( 91.63)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.05 min: 10.00 max: 20.40
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 08:58:15.336 | INFO     | utils.utils:display:55 - Epoch: [9][900/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.26 (801.57)	images/s	Loss 15.557 (15.482)	L_ID 12.960 (12.880)	L_mag 2.596769 (2.602326)	Acc@1  87.70 ( 88.72)	Acc@5  91.02 ( 91.59)	LR 0.1000 (0.1000)
+  [debug info]: x_norm mean: 14.07 min: 10.00 max: 32.08
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.53
+ : save pth for epoch 10
+2022-12-28 08:58:54.034 | INFO     | utils.utils:display:55 - Epoch: [10][  0/958]	Time  0.910 ( 0.910)	Data  0.655 ( 0.655)	ThroughPut 562.69 (562.69)	images/s	Loss 14.321 (14.321)	L_ID 11.723 (11.723)	L_mag 2.598644 (2.598644)	Acc@1  88.67 ( 88.67)	Acc@5  91.80 ( 91.80)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.08 min: 10.00 max: 23.73
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.50
+2022-12-28 08:59:57.882 | INFO     | utils.utils:display:55 - Epoch: [10][100/958]	Time  0.641 ( 0.641)	Data  0.000 ( 0.010)	ThroughPut 799.01 (799.66)	images/s	Loss 13.194 (13.201)	L_ID 10.609 (10.607)	L_mag 2.585462 (2.593845)	Acc@1  90.43 ( 91.04)	Acc@5  92.97 ( 93.02)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.20 min: 10.00 max: 21.87
+  [debug info]: margin mean: 0.46 min: 0.45 max: 0.49
+2022-12-28 09:01:01.778 | INFO     | utils.utils:display:55 - Epoch: [10][200/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 798.75 (800.51)	images/s	Loss 12.544 (12.920)	L_ID 9.976 (10.336)	L_mag 2.567628 (2.583449)	Acc@1  91.02 ( 91.28)	Acc@5  92.97 ( 93.26)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.36 min: 10.00 max: 22.08
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.49
+2022-12-28 09:02:05.663 | INFO     | utils.utils:display:55 - Epoch: [10][300/958]	Time  0.636 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 804.76 (800.82)	images/s	Loss 11.661 (12.711)	L_ID 9.131 (10.141)	L_mag 2.529857 (2.570914)	Acc@1  93.36 ( 91.50)	Acc@5  94.14 ( 93.42)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.55 min: 10.00 max: 23.15
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:03:09.546 | INFO     | utils.utils:display:55 - Epoch: [10][400/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 800.97 (800.98)	images/s	Loss 12.116 (12.537)	L_ID 9.609 (9.978)	L_mag 2.507327 (2.558442)	Acc@1  91.02 ( 91.70)	Acc@5  92.38 ( 93.56)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.73 min: 10.00 max: 21.57
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.49
+2022-12-28 09:04:13.427 | INFO     | utils.utils:display:55 - Epoch: [10][500/958]	Time  0.633 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 808.26 (801.09)	images/s	Loss 12.284 (12.418)	L_ID 9.791 (9.872)	L_mag 2.492972 (2.546254)	Acc@1  92.38 ( 91.79)	Acc@5  93.16 ( 93.63)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 14.86 min: 10.00 max: 25.84
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:05:17.310 | INFO     | utils.utils:display:55 - Epoch: [10][600/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 805.52 (801.16)	images/s	Loss 12.228 (12.331)	L_ID 9.755 (9.796)	L_mag 2.473020 (2.535081)	Acc@1  92.38 ( 91.84)	Acc@5  93.16 ( 93.66)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.00 min: 10.00 max: 22.97
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:06:21.243 | INFO     | utils.utils:display:55 - Epoch: [10][700/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.84 (801.11)	images/s	Loss 12.488 (12.239)	L_ID 10.038 (9.715)	L_mag 2.450852 (2.524045)	Acc@1  90.23 ( 91.93)	Acc@5  93.16 ( 93.72)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.12 min: 10.00 max: 23.71
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:07:25.144 | INFO     | utils.utils:display:55 - Epoch: [10][800/958]	Time  0.644 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.08 (801.13)	images/s	Loss 11.595 (12.165)	L_ID 9.169 (9.652)	L_mag 2.425854 (2.513574)	Acc@1  92.97 ( 91.98)	Acc@5  94.53 ( 93.75)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.25 min: 10.00 max: 24.58
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:08:29.051 | INFO     | utils.utils:display:55 - Epoch: [10][900/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.87 (801.14)	images/s	Loss 11.401 (12.099)	L_ID 8.979 (9.595)	L_mag 2.421879 (2.503878)	Acc@1  92.77 ( 92.03)	Acc@5  94.73 ( 93.78)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.34 min: 10.00 max: 24.99
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+ : save pth for epoch 11
+2022-12-28 09:09:07.837 | INFO     | utils.utils:display:55 - Epoch: [11][  0/958]	Time  0.972 ( 0.972)	Data  0.712 ( 0.712)	ThroughPut 526.96 (526.96)	images/s	Loss 10.788 (10.788)	L_ID 8.376 (8.376)	L_mag 2.412938 (2.412938)	Acc@1  92.58 ( 92.58)	Acc@5  93.55 ( 93.55)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.40 min: 10.00 max: 24.51
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:10:11.690 | INFO     | utils.utils:display:55 - Epoch: [11][100/958]	Time  0.635 ( 0.642)	Data  0.000 ( 0.011)	ThroughPut 805.71 (799.36)	images/s	Loss 11.685 (10.835)	L_ID 9.271 (8.432)	L_mag 2.413542 (2.403207)	Acc@1  91.80 ( 93.03)	Acc@5  93.36 ( 94.39)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.48 min: 10.00 max: 24.75
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:11:15.561 | INFO     | utils.utils:display:55 - Epoch: [11][200/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.008)	ThroughPut 799.27 (800.47)	images/s	Loss 11.279 (10.835)	L_ID 8.890 (8.440)	L_mag 2.389260 (2.394976)	Acc@1  92.97 ( 93.07)	Acc@5  94.73 ( 94.39)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.61 min: 10.00 max: 25.15
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:12:19.478 | INFO     | utils.utils:display:55 - Epoch: [11][300/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 799.95 (800.68)	images/s	Loss 11.900 (10.799)	L_ID 9.531 (8.411)	L_mag 2.368805 (2.387677)	Acc@1  91.21 ( 93.10)	Acc@5  91.99 ( 94.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.73 min: 10.00 max: 24.51
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:13:23.358 | INFO     | utils.utils:display:55 - Epoch: [11][400/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 800.46 (800.89)	images/s	Loss 10.977 (10.792)	L_ID 8.614 (8.410)	L_mag 2.362949 (2.381270)	Acc@1  93.16 ( 93.10)	Acc@5  93.95 ( 94.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.80 min: 10.00 max: 24.95
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:14:27.234 | INFO     | utils.utils:display:55 - Epoch: [11][500/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 802.85 (801.03)	images/s	Loss 10.785 (10.805)	L_ID 8.435 (8.429)	L_mag 2.349462 (2.375867)	Acc@1  94.53 ( 93.08)	Acc@5  94.73 ( 94.40)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.87 min: 10.00 max: 25.78
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:15:31.109 | INFO     | utils.utils:display:55 - Epoch: [11][600/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.23 (801.11)	images/s	Loss 10.674 (10.791)	L_ID 8.344 (8.421)	L_mag 2.329955 (2.370341)	Acc@1  92.97 ( 93.12)	Acc@5  94.73 ( 94.44)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.96 min: 10.00 max: 25.02
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:16:35.235 | INFO     | utils.utils:display:55 - Epoch: [11][700/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 797.90 (800.75)	images/s	Loss 10.388 (10.783)	L_ID 8.046 (8.417)	L_mag 2.342061 (2.365720)	Acc@1  92.97 ( 93.12)	Acc@5  94.34 ( 94.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 15.99 min: 10.00 max: 25.52
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.50
+2022-12-28 09:17:39.111 | INFO     | utils.utils:display:55 - Epoch: [11][800/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.88 (800.85)	images/s	Loss 11.199 (10.772)	L_ID 8.869 (8.411)	L_mag 2.329927 (2.360800)	Acc@1  92.38 ( 93.11)	Acc@5  93.36 ( 94.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.04 min: 10.00 max: 26.36
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:18:42.981 | INFO     | utils.utils:display:55 - Epoch: [11][900/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.87 (800.94)	images/s	Loss 10.794 (10.768)	L_ID 8.457 (8.411)	L_mag 2.336923 (2.356618)	Acc@1  93.55 ( 93.12)	Acc@5  94.73 ( 94.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.07 min: 10.00 max: 27.56
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+ : save pth for epoch 12
+2022-12-28 09:19:21.588 | INFO     | utils.utils:display:55 - Epoch: [12][  0/958]	Time  0.853 ( 0.853)	Data  0.576 ( 0.576)	ThroughPut 600.27 (600.27)	images/s	Loss 10.118 (10.118)	L_ID 7.804 (7.804)	L_mag 2.314180 (2.314180)	Acc@1  94.53 ( 94.53)	Acc@5  95.12 ( 95.12)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.13 min: 10.00 max: 26.45
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:20:25.459 | INFO     | utils.utils:display:55 - Epoch: [12][100/958]	Time  0.641 ( 0.641)	Data  0.000 ( 0.009)	ThroughPut 799.21 (800.06)	images/s	Loss 10.205 (10.055)	L_ID 7.894 (7.741)	L_mag 2.310874 (2.313775)	Acc@1  94.34 ( 93.69)	Acc@5  94.73 ( 94.74)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.19 min: 10.00 max: 28.17
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:21:29.346 | INFO     | utils.utils:display:55 - Epoch: [12][200/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 801.21 (800.74)	images/s	Loss 10.154 (10.089)	L_ID 7.852 (7.779)	L_mag 2.301165 (2.309808)	Acc@1  92.77 ( 93.64)	Acc@5  94.92 ( 94.75)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.27 min: 10.00 max: 26.42
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:22:33.218 | INFO     | utils.utils:display:55 - Epoch: [12][300/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 800.49 (801.06)	images/s	Loss 10.757 (10.089)	L_ID 8.456 (7.783)	L_mag 2.300288 (2.305523)	Acc@1  92.38 ( 93.62)	Acc@5  93.95 ( 94.74)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.30 min: 10.00 max: 25.78
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:23:37.116 | INFO     | utils.utils:display:55 - Epoch: [12][400/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.67 (801.11)	images/s	Loss 10.239 (10.104)	L_ID 7.961 (7.802)	L_mag 2.277858 (2.302393)	Acc@1  93.75 ( 93.61)	Acc@5  94.73 ( 94.73)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.37 min: 10.00 max: 25.97
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:24:41.005 | INFO     | utils.utils:display:55 - Epoch: [12][500/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.20 (801.17)	images/s	Loss 10.126 (10.114)	L_ID 7.828 (7.814)	L_mag 2.297880 (2.299943)	Acc@1  93.55 ( 93.62)	Acc@5  94.53 ( 94.73)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.36 min: 10.00 max: 26.23
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:25:44.875 | INFO     | utils.utils:display:55 - Epoch: [12][600/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.23 (801.26)	images/s	Loss 10.668 (10.136)	L_ID 8.381 (7.839)	L_mag 2.287653 (2.297405)	Acc@1  92.97 ( 93.62)	Acc@5  94.34 ( 94.73)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.41 min: 10.00 max: 26.78
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:26:48.846 | INFO     | utils.utils:display:55 - Epoch: [12][700/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.12 (801.13)	images/s	Loss 9.633 (10.154)	L_ID 7.356 (7.859)	L_mag 2.276724 (2.295263)	Acc@1  94.14 ( 93.62)	Acc@5  95.12 ( 94.73)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.44 min: 10.00 max: 26.89
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:27:52.806 | INFO     | utils.utils:display:55 - Epoch: [12][800/958]	Time  0.644 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.27 (801.05)	images/s	Loss 10.649 (10.161)	L_ID 8.369 (7.868)	L_mag 2.279716 (2.293406)	Acc@1  93.36 ( 93.62)	Acc@5  95.31 ( 94.74)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.45 min: 10.00 max: 26.46
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:28:56.724 | INFO     | utils.utils:display:55 - Epoch: [12][900/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.83 (801.05)	images/s	Loss 10.166 (10.180)	L_ID 7.886 (7.889)	L_mag 2.279663 (2.291693)	Acc@1  92.19 ( 93.59)	Acc@5  94.14 ( 94.71)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.46 min: 10.00 max: 27.53
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+ : save pth for epoch 13
+2022-12-28 09:29:35.543 | INFO     | utils.utils:display:55 - Epoch: [13][  0/958]	Time  1.021 ( 1.021)	Data  0.772 ( 0.772)	ThroughPut 501.47 (501.47)	images/s	Loss 9.459 (9.459)	L_ID 7.177 (7.177)	L_mag 2.282424 (2.282424)	Acc@1  95.12 ( 95.12)	Acc@5  96.09 ( 96.09)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.45 min: 10.00 max: 28.20
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:30:39.390 | INFO     | utils.utils:display:55 - Epoch: [13][100/958]	Time  0.636 ( 0.642)	Data  0.000 ( 0.012)	ThroughPut 805.44 (799.02)	images/s	Loss 9.242 (9.636)	L_ID 6.977 (7.362)	L_mag 2.265858 (2.274124)	Acc@1  95.70 ( 94.04)	Acc@5  96.88 ( 95.02)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.53 min: 10.00 max: 27.38
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:31:43.273 | INFO     | utils.utils:display:55 - Epoch: [13][200/958]	Time  0.637 ( 0.641)	Data  0.000 ( 0.008)	ThroughPut 803.40 (800.24)	images/s	Loss 9.382 (9.616)	L_ID 7.104 (7.345)	L_mag 2.277998 (2.271205)	Acc@1  95.70 ( 94.06)	Acc@5  96.09 ( 95.03)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.54 min: 10.00 max: 30.90
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 09:32:47.175 | INFO     | utils.utils:display:55 - Epoch: [13][300/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 801.30 (800.57)	images/s	Loss 9.501 (9.612)	L_ID 7.261 (7.344)	L_mag 2.240351 (2.268601)	Acc@1  93.95 ( 94.09)	Acc@5  94.92 ( 95.07)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.66 min: 10.00 max: 26.85
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:33:51.067 | INFO     | utils.utils:display:55 - Epoch: [13][400/958]	Time  0.643 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 796.40 (800.78)	images/s	Loss 9.352 (9.677)	L_ID 7.088 (7.410)	L_mag 2.263531 (2.266991)	Acc@1  95.12 ( 94.03)	Acc@5  96.09 ( 95.03)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.61 min: 10.00 max: 28.07
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:34:55.123 | INFO     | utils.utils:display:55 - Epoch: [13][500/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 798.00 (800.48)	images/s	Loss 9.930 (9.710)	L_ID 7.676 (7.445)	L_mag 2.254687 (2.265353)	Acc@1  93.36 ( 93.99)	Acc@5  94.92 ( 95.00)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.65 min: 10.00 max: 27.35
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:35:58.948 | INFO     | utils.utils:display:55 - Epoch: [13][600/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 798.29 (800.77)	images/s	Loss 9.982 (9.734)	L_ID 7.702 (7.470)	L_mag 2.280464 (2.263913)	Acc@1  92.97 ( 93.98)	Acc@5  95.51 ( 94.99)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.59 min: 10.00 max: 29.16
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 09:37:02.828 | INFO     | utils.utils:display:55 - Epoch: [13][700/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 800.12 (800.88)	images/s	Loss 9.743 (9.762)	L_ID 7.490 (7.500)	L_mag 2.253385 (2.262610)	Acc@1  94.14 ( 93.96)	Acc@5  95.12 ( 94.98)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.65 min: 10.00 max: 30.49
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 09:38:06.701 | INFO     | utils.utils:display:55 - Epoch: [13][800/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.22 (800.98)	images/s	Loss 10.087 (9.795)	L_ID 7.822 (7.533)	L_mag 2.264851 (2.261748)	Acc@1  94.34 ( 93.91)	Acc@5  95.51 ( 94.93)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.63 min: 10.00 max: 27.26
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:39:10.603 | INFO     | utils.utils:display:55 - Epoch: [13][900/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 798.60 (801.00)	images/s	Loss 9.548 (9.817)	L_ID 7.303 (7.556)	L_mag 2.245151 (2.261262)	Acc@1  94.92 ( 93.89)	Acc@5  95.70 ( 94.92)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.68 min: 10.00 max: 26.56
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+ : save pth for epoch 14
+2022-12-28 09:39:49.156 | INFO     | utils.utils:display:55 - Epoch: [14][  0/958]	Time  0.783 ( 0.783)	Data  0.502 ( 0.502)	ThroughPut 653.75 (653.75)	images/s	Loss 9.459 (9.459)	L_ID 7.204 (7.204)	L_mag 2.255348 (2.255348)	Acc@1  94.73 ( 94.73)	Acc@5  95.51 ( 95.51)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.64 min: 10.00 max: 28.26
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:40:53.058 | INFO     | utils.utils:display:55 - Epoch: [14][100/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 797.82 (800.09)	images/s	Loss 9.129 (9.238)	L_ID 6.874 (6.983)	L_mag 2.254748 (2.255316)	Acc@1  94.53 ( 94.38)	Acc@5  95.51 ( 95.27)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.69 min: 10.00 max: 28.40
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:41:56.969 | INFO     | utils.utils:display:55 - Epoch: [14][200/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 801.18 (800.63)	images/s	Loss 9.033 (9.295)	L_ID 6.802 (7.043)	L_mag 2.230289 (2.252330)	Acc@1  94.34 ( 94.31)	Acc@5  95.31 ( 95.23)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.77 min: 10.00 max: 27.93
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:43:00.873 | INFO     | utils.utils:display:55 - Epoch: [14][300/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 804.92 (800.83)	images/s	Loss 8.471 (9.362)	L_ID 6.233 (7.112)	L_mag 2.237742 (2.250107)	Acc@1  95.70 ( 94.26)	Acc@5  97.07 ( 95.18)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.77 min: 10.00 max: 27.04
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:44:04.789 | INFO     | utils.utils:display:55 - Epoch: [14][400/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 796.92 (800.89)	images/s	Loss 8.913 (9.428)	L_ID 6.674 (7.179)	L_mag 2.239446 (2.248906)	Acc@1  96.29 ( 94.19)	Acc@5  97.07 ( 95.11)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.76 min: 10.00 max: 27.14
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:45:08.763 | INFO     | utils.utils:display:55 - Epoch: [14][500/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.43 (800.79)	images/s	Loss 10.137 (9.458)	L_ID 7.889 (7.210)	L_mag 2.248030 (2.248340)	Acc@1  93.75 ( 94.18)	Acc@5  94.92 ( 95.10)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.75 min: 10.00 max: 26.77
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:46:12.710 | INFO     | utils.utils:display:55 - Epoch: [14][600/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.62 (800.77)	images/s	Loss 8.903 (9.482)	L_ID 6.657 (7.235)	L_mag 2.245675 (2.247427)	Acc@1  94.34 ( 94.16)	Acc@5  96.09 ( 95.09)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.77 min: 10.00 max: 27.51
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:47:16.649 | INFO     | utils.utils:display:55 - Epoch: [14][700/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 798.80 (800.77)	images/s	Loss 9.246 (9.496)	L_ID 7.016 (7.249)	L_mag 2.229467 (2.246747)	Acc@1  94.73 ( 94.14)	Acc@5  95.51 ( 95.08)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.80 min: 10.00 max: 27.61
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:48:20.601 | INFO     | utils.utils:display:55 - Epoch: [14][800/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.80 (800.76)	images/s	Loss 9.216 (9.518)	L_ID 6.970 (7.272)	L_mag 2.245792 (2.246206)	Acc@1  95.12 ( 94.14)	Acc@5  96.09 ( 95.08)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.76 min: 10.00 max: 32.13
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.53
+2022-12-28 09:49:24.554 | INFO     | utils.utils:display:55 - Epoch: [14][900/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 805.82 (800.74)	images/s	Loss 9.377 (9.561)	L_ID 7.136 (7.315)	L_mag 2.241108 (2.246197)	Acc@1  93.55 ( 94.10)	Acc@5  95.70 ( 95.05)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.75 min: 10.00 max: 28.81
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+ : save pth for epoch 15
+2022-12-28 09:50:03.219 | INFO     | utils.utils:display:55 - Epoch: [15][  0/958]	Time  0.822 ( 0.822)	Data  0.572 ( 0.572)	ThroughPut 623.12 (623.12)	images/s	Loss 8.943 (8.943)	L_ID 6.689 (6.689)	L_mag 2.253549 (2.253549)	Acc@1  94.53 ( 94.53)	Acc@5  95.51 ( 95.51)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.73 min: 10.00 max: 26.86
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:51:07.169 | INFO     | utils.utils:display:55 - Epoch: [15][100/958]	Time  0.635 ( 0.641)	Data  0.000 ( 0.010)	ThroughPut 806.38 (798.98)	images/s	Loss 9.782 (9.065)	L_ID 7.538 (6.819)	L_mag 2.244115 (2.246848)	Acc@1  91.99 ( 94.37)	Acc@5  92.58 ( 95.22)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.79 min: 10.00 max: 26.64
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:52:11.133 | INFO     | utils.utils:display:55 - Epoch: [15][200/958]	Time  0.636 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 804.61 (799.71)	images/s	Loss 9.490 (9.078)	L_ID 7.266 (6.836)	L_mag 2.224627 (2.242506)	Acc@1  94.34 ( 94.43)	Acc@5  95.31 ( 95.29)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 27.90
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:53:15.052 | INFO     | utils.utils:display:55 - Epoch: [15][300/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 802.48 (800.15)	images/s	Loss 9.704 (9.140)	L_ID 7.461 (6.899)	L_mag 2.243324 (2.240246)	Acc@1  93.55 ( 94.41)	Acc@5  94.53 ( 95.28)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.84 min: 10.00 max: 27.55
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:54:18.942 | INFO     | utils.utils:display:55 - Epoch: [15][400/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 796.98 (800.46)	images/s	Loss 8.991 (9.198)	L_ID 6.751 (6.958)	L_mag 2.239391 (2.239180)	Acc@1  95.12 ( 94.37)	Acc@5  95.90 ( 95.25)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.85 min: 10.00 max: 28.04
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:55:22.822 | INFO     | utils.utils:display:55 - Epoch: [15][500/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 801.53 (800.67)	images/s	Loss 8.889 (9.238)	L_ID 6.665 (7.000)	L_mag 2.223809 (2.237988)	Acc@1  95.31 ( 94.36)	Acc@5  95.90 ( 95.25)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 27.59
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:56:26.713 | INFO     | utils.utils:display:55 - Epoch: [15][600/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 798.46 (800.78)	images/s	Loss 9.048 (9.268)	L_ID 6.796 (7.030)	L_mag 2.251108 (2.237479)	Acc@1  94.73 ( 94.33)	Acc@5  95.90 ( 95.25)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.81 min: 10.00 max: 27.82
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:57:30.626 | INFO     | utils.utils:display:55 - Epoch: [15][700/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 805.22 (800.84)	images/s	Loss 8.954 (9.293)	L_ID 6.723 (7.056)	L_mag 2.231327 (2.237112)	Acc@1  96.48 ( 94.32)	Acc@5  97.27 ( 95.24)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.85 min: 10.00 max: 27.47
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 09:58:34.541 | INFO     | utils.utils:display:55 - Epoch: [15][800/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.23 (800.87)	images/s	Loss 9.929 (9.343)	L_ID 7.695 (7.106)	L_mag 2.233820 (2.237118)	Acc@1  93.36 ( 94.28)	Acc@5  94.34 ( 95.20)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.83 min: 10.00 max: 28.71
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 09:59:38.449 | INFO     | utils.utils:display:55 - Epoch: [15][900/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.74 (800.90)	images/s	Loss 9.273 (9.379)	L_ID 7.022 (7.142)	L_mag 2.251485 (2.237381)	Acc@1  95.31 ( 94.25)	Acc@5  95.70 ( 95.18)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.78 min: 10.00 max: 32.98
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.53
+ : save pth for epoch 16
+2022-12-28 10:00:17.143 | INFO     | utils.utils:display:55 - Epoch: [16][  0/958]	Time  0.889 ( 0.889)	Data  0.631 ( 0.631)	ThroughPut 575.97 (575.97)	images/s	Loss 8.479 (8.479)	L_ID 6.222 (6.222)	L_mag 2.257729 (2.257729)	Acc@1  94.34 ( 94.34)	Acc@5  95.51 ( 95.51)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.76 min: 10.00 max: 26.85
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:01:20.991 | INFO     | utils.utils:display:55 - Epoch: [16][100/958]	Time  0.634 ( 0.641)	Data  0.000 ( 0.010)	ThroughPut 807.58 (799.90)	images/s	Loss 8.234 (8.833)	L_ID 6.006 (6.593)	L_mag 2.228127 (2.239390)	Acc@1  95.51 ( 94.52)	Acc@5  96.09 ( 95.41)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 27.74
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:02:24.857 | INFO     | utils.utils:display:55 - Epoch: [16][200/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 802.65 (800.76)	images/s	Loss 8.169 (8.830)	L_ID 5.943 (6.594)	L_mag 2.226282 (2.236152)	Acc@1  96.48 ( 94.65)	Acc@5  97.27 ( 95.48)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.90 min: 10.00 max: 28.01
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:03:28.777 | INFO     | utils.utils:display:55 - Epoch: [16][300/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 803.37 (800.86)	images/s	Loss 10.207 (8.880)	L_ID 7.977 (6.646)	L_mag 2.230251 (2.233952)	Acc@1  92.77 ( 94.63)	Acc@5  94.53 ( 95.47)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 29.33
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:04:32.674 | INFO     | utils.utils:display:55 - Epoch: [16][400/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 801.89 (800.97)	images/s	Loss 8.913 (8.968)	L_ID 6.680 (6.736)	L_mag 2.232203 (2.232470)	Acc@1  94.53 ( 94.58)	Acc@5  96.88 ( 95.43)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 27.31
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:05:36.557 | INFO     | utils.utils:display:55 - Epoch: [16][500/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.74 (801.07)	images/s	Loss 8.762 (9.022)	L_ID 6.530 (6.790)	L_mag 2.231378 (2.231678)	Acc@1  95.70 ( 94.54)	Acc@5  96.29 ( 95.41)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 26.44
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:06:40.451 | INFO     | utils.utils:display:55 - Epoch: [16][600/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.40 (801.12)	images/s	Loss 9.417 (9.078)	L_ID 7.174 (6.846)	L_mag 2.243102 (2.231335)	Acc@1  93.55 ( 94.51)	Acc@5  94.73 ( 95.38)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.86 min: 10.00 max: 29.10
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:07:44.350 | INFO     | utils.utils:display:55 - Epoch: [16][700/958]	Time  0.644 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 795.41 (801.14)	images/s	Loss 9.397 (9.133)	L_ID 7.164 (6.901)	L_mag 2.232970 (2.231219)	Acc@1  93.75 ( 94.47)	Acc@5  94.92 ( 95.34)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.88 min: 10.00 max: 27.90
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:08:48.219 | INFO     | utils.utils:display:55 - Epoch: [16][800/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.60 (801.21)	images/s	Loss 8.543 (9.172)	L_ID 6.310 (6.940)	L_mag 2.233383 (2.231626)	Acc@1  96.48 ( 94.44)	Acc@5  97.07 ( 95.32)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 27.94
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:09:52.119 | INFO     | utils.utils:display:55 - Epoch: [16][900/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.68 (801.22)	images/s	Loss 9.952 (9.232)	L_ID 7.713 (6.999)	L_mag 2.238319 (2.232304)	Acc@1  94.34 ( 94.39)	Acc@5  94.73 ( 95.27)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.83 min: 10.00 max: 29.08
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+ : save pth for epoch 17
+2022-12-28 10:10:30.669 | INFO     | utils.utils:display:55 - Epoch: [17][  0/958]	Time  0.770 ( 0.770)	Data  0.501 ( 0.501)	ThroughPut 664.91 (664.91)	images/s	Loss 8.853 (8.853)	L_ID 6.607 (6.607)	L_mag 2.245912 (2.245912)	Acc@1  93.36 ( 93.36)	Acc@5  94.34 ( 94.34)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.81 min: 10.00 max: 29.67
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:11:34.519 | INFO     | utils.utils:display:55 - Epoch: [17][100/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 803.79 (800.79)	images/s	Loss 9.544 (8.746)	L_ID 7.299 (6.507)	L_mag 2.245628 (2.239805)	Acc@1  93.95 ( 94.79)	Acc@5  94.73 ( 95.65)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.84 min: 10.00 max: 28.19
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:12:38.399 | INFO     | utils.utils:display:55 - Epoch: [17][200/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 803.66 (801.16)	images/s	Loss 8.097 (8.809)	L_ID 5.871 (6.574)	L_mag 2.225697 (2.234861)	Acc@1  96.09 ( 94.70)	Acc@5  96.88 ( 95.55)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.92 min: 10.00 max: 28.07
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:13:42.247 | INFO     | utils.utils:display:55 - Epoch: [17][300/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 800.45 (801.40)	images/s	Loss 9.480 (8.883)	L_ID 7.240 (6.650)	L_mag 2.239560 (2.233080)	Acc@1  93.75 ( 94.65)	Acc@5  95.12 ( 95.51)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.88 min: 10.00 max: 28.44
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:14:46.123 | INFO     | utils.utils:display:55 - Epoch: [17][400/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.77 (801.46)	images/s	Loss 8.818 (8.937)	L_ID 6.591 (6.705)	L_mag 2.226252 (2.232184)	Acc@1  96.09 ( 94.63)	Acc@5  96.09 ( 95.48)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.92 min: 10.00 max: 29.16
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:15:49.995 | INFO     | utils.utils:display:55 - Epoch: [17][500/958]	Time  0.647 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 791.94 (801.48)	images/s	Loss 9.187 (8.984)	L_ID 6.947 (6.752)	L_mag 2.240115 (2.231594)	Acc@1  94.53 ( 94.59)	Acc@5  95.51 ( 95.45)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.88 min: 10.00 max: 29.60
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:16:53.838 | INFO     | utils.utils:display:55 - Epoch: [17][600/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.56 (801.57)	images/s	Loss 10.010 (9.030)	L_ID 7.780 (6.799)	L_mag 2.229677 (2.231641)	Acc@1  93.36 ( 94.56)	Acc@5  94.34 ( 95.41)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 26.93
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:17:57.719 | INFO     | utils.utils:display:55 - Epoch: [17][700/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.21 (801.57)	images/s	Loss 9.836 (9.079)	L_ID 7.599 (6.847)	L_mag 2.237536 (2.231750)	Acc@1  93.75 ( 94.52)	Acc@5  94.53 ( 95.38)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.88 min: 10.00 max: 28.68
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:19:01.597 | INFO     | utils.utils:display:55 - Epoch: [17][800/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.05 (801.56)	images/s	Loss 9.144 (9.116)	L_ID 6.912 (6.884)	L_mag 2.232118 (2.231903)	Acc@1  93.75 ( 94.50)	Acc@5  94.73 ( 95.37)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 26.60
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:20:05.480 | INFO     | utils.utils:display:55 - Epoch: [17][900/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.52 (801.56)	images/s	Loss 8.994 (9.148)	L_ID 6.753 (6.915)	L_mag 2.240858 (2.232638)	Acc@1  95.31 ( 94.48)	Acc@5  95.31 ( 95.35)	LR 0.0100 (0.0100)
+  [debug info]: x_norm mean: 16.84 min: 10.00 max: 28.83
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+ : save pth for epoch 18
+2022-12-28 10:20:44.126 | INFO     | utils.utils:display:55 - Epoch: [18][  0/958]	Time  0.864 ( 0.864)	Data  0.597 ( 0.597)	ThroughPut 592.59 (592.59)	images/s	Loss 8.208 (8.208)	L_ID 5.984 (5.984)	L_mag 2.223639 (2.223639)	Acc@1  95.12 ( 95.12)	Acc@5  95.70 ( 95.70)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.87 min: 10.00 max: 30.72
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:21:48.015 | INFO     | utils.utils:display:55 - Epoch: [18][100/958]	Time  0.637 ( 0.641)	Data  0.000 ( 0.010)	ThroughPut 804.34 (799.52)	images/s	Loss 8.162 (8.357)	L_ID 5.923 (6.117)	L_mag 2.239603 (2.239863)	Acc@1  96.09 ( 95.07)	Acc@5  96.48 ( 95.81)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.84 min: 10.00 max: 27.99
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:22:51.873 | INFO     | utils.utils:display:55 - Epoch: [18][200/958]	Time  0.636 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 804.90 (800.67)	images/s	Loss 8.345 (8.287)	L_ID 6.096 (6.047)	L_mag 2.248201 (2.239610)	Acc@1  94.14 ( 95.07)	Acc@5  95.12 ( 95.81)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.83 min: 10.00 max: 27.77
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:23:55.764 | INFO     | utils.utils:display:55 - Epoch: [18][300/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 802.99 (800.90)	images/s	Loss 8.034 (8.267)	L_ID 5.805 (6.027)	L_mag 2.228543 (2.239937)	Acc@1  95.31 ( 95.09)	Acc@5  95.51 ( 95.84)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.89 min: 10.00 max: 28.88
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:24:59.638 | INFO     | utils.utils:display:55 - Epoch: [18][400/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 799.79 (801.07)	images/s	Loss 8.115 (8.256)	L_ID 5.870 (6.016)	L_mag 2.244288 (2.239660)	Acc@1  95.31 ( 95.04)	Acc@5  96.09 ( 95.81)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.86 min: 10.00 max: 29.17
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:26:03.504 | INFO     | utils.utils:display:55 - Epoch: [18][500/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 806.78 (801.21)	images/s	Loss 7.195 (8.237)	L_ID 4.963 (5.997)	L_mag 2.232159 (2.239461)	Acc@1  96.09 ( 95.04)	Acc@5  96.68 ( 95.81)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.89 min: 10.00 max: 28.24
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:27:07.387 | INFO     | utils.utils:display:55 - Epoch: [18][600/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.03 (801.25)	images/s	Loss 8.422 (8.224)	L_ID 6.174 (5.985)	L_mag 2.247450 (2.238863)	Acc@1  93.75 ( 95.04)	Acc@5  94.73 ( 95.80)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.86 min: 10.00 max: 27.44
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:28:11.289 | INFO     | utils.utils:display:55 - Epoch: [18][700/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 800.22 (801.25)	images/s	Loss 8.049 (8.219)	L_ID 5.817 (5.981)	L_mag 2.232288 (2.238512)	Acc@1  94.53 ( 95.03)	Acc@5  95.12 ( 95.79)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 29.36
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:29:15.183 | INFO     | utils.utils:display:55 - Epoch: [18][800/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 804.66 (801.27)	images/s	Loss 8.317 (8.200)	L_ID 6.080 (5.962)	L_mag 2.237587 (2.237689)	Acc@1  94.73 ( 95.05)	Acc@5  96.09 ( 95.80)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.91 min: 10.00 max: 28.12
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:30:19.054 | INFO     | utils.utils:display:55 - Epoch: [18][900/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.13 (801.30)	images/s	Loss 7.317 (8.194)	L_ID 5.101 (5.956)	L_mag 2.215975 (2.237072)	Acc@1  96.29 ( 95.04)	Acc@5  96.88 ( 95.80)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.97 min: 10.00 max: 26.29
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+ : save pth for epoch 19
+2022-12-28 10:30:57.688 | INFO     | utils.utils:display:55 - Epoch: [19][  0/958]	Time  0.820 ( 0.820)	Data  0.568 ( 0.568)	ThroughPut 624.40 (624.40)	images/s	Loss 7.540 (7.540)	L_ID 5.327 (5.327)	L_mag 2.213969 (2.213969)	Acc@1  95.90 ( 95.90)	Acc@5  96.88 ( 96.88)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.99 min: 10.00 max: 26.56
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:32:01.555 | INFO     | utils.utils:display:55 - Epoch: [19][100/958]	Time  0.636 ( 0.640)	Data  0.000 ( 0.010)	ThroughPut 804.55 (800.06)	images/s	Loss 8.002 (7.914)	L_ID 5.762 (5.682)	L_mag 2.240071 (2.231121)	Acc@1  94.92 ( 95.24)	Acc@5  95.90 ( 95.95)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.94 min: 10.00 max: 28.47
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:33:05.435 | INFO     | utils.utils:display:55 - Epoch: [19][200/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 803.31 (800.79)	images/s	Loss 8.132 (7.957)	L_ID 5.921 (5.728)	L_mag 2.211291 (2.229095)	Acc@1  93.95 ( 95.16)	Acc@5  94.53 ( 95.90)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.00 min: 10.00 max: 30.88
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:34:09.337 | INFO     | utils.utils:display:55 - Epoch: [19][300/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 796.57 (800.93)	images/s	Loss 6.969 (7.956)	L_ID 4.742 (5.727)	L_mag 2.227174 (2.228586)	Acc@1  95.90 ( 95.17)	Acc@5  96.29 ( 95.91)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.99 min: 10.00 max: 29.48
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:35:13.251 | INFO     | utils.utils:display:55 - Epoch: [19][400/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 801.05 (800.98)	images/s	Loss 8.684 (7.938)	L_ID 6.458 (5.711)	L_mag 2.225787 (2.227621)	Acc@1  93.75 ( 95.22)	Acc@5  94.53 ( 95.96)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.00 min: 10.00 max: 30.26
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:36:17.130 | INFO     | utils.utils:display:55 - Epoch: [19][500/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 796.97 (801.09)	images/s	Loss 7.462 (7.949)	L_ID 5.263 (5.723)	L_mag 2.198686 (2.226504)	Acc@1  95.12 ( 95.21)	Acc@5  95.51 ( 95.93)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.07 min: 10.00 max: 27.78
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:37:21.035 | INFO     | utils.utils:display:55 - Epoch: [19][600/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.15 (801.11)	images/s	Loss 9.200 (7.962)	L_ID 6.957 (5.736)	L_mag 2.242773 (2.226044)	Acc@1  92.77 ( 95.20)	Acc@5  93.95 ( 95.91)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 16.98 min: 10.00 max: 27.87
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:38:24.952 | INFO     | utils.utils:display:55 - Epoch: [19][700/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.03 (801.10)	images/s	Loss 8.306 (7.964)	L_ID 6.081 (5.739)	L_mag 2.224538 (2.225203)	Acc@1  94.53 ( 95.20)	Acc@5  94.92 ( 95.92)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.03 min: 10.00 max: 30.27
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:39:28.848 | INFO     | utils.utils:display:55 - Epoch: [19][800/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.27 (801.13)	images/s	Loss 8.583 (7.957)	L_ID 6.360 (5.732)	L_mag 2.222350 (2.224438)	Acc@1  93.75 ( 95.21)	Acc@5  95.12 ( 95.92)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.05 min: 10.00 max: 28.48
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:40:32.752 | INFO     | utils.utils:display:55 - Epoch: [19][900/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 803.16 (801.15)	images/s	Loss 8.439 (7.963)	L_ID 6.203 (5.739)	L_mag 2.236212 (2.223683)	Acc@1  94.53 ( 95.21)	Acc@5  95.31 ( 95.92)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.03 min: 10.00 max: 28.82
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+ : save pth for epoch 20
+2022-12-28 10:41:11.320 | INFO     | utils.utils:display:55 - Epoch: [20][  0/958]	Time  0.777 ( 0.777)	Data  0.502 ( 0.502)	ThroughPut 658.56 (658.56)	images/s	Loss 8.133 (8.133)	L_ID 5.899 (5.899)	L_mag 2.234595 (2.234595)	Acc@1  94.34 ( 94.34)	Acc@5  95.12 ( 95.12)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.04 min: 10.00 max: 29.66
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:42:15.209 | INFO     | utils.utils:display:55 - Epoch: [20][100/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.009)	ThroughPut 801.27 (800.23)	images/s	Loss 8.472 (7.899)	L_ID 6.236 (5.684)	L_mag 2.235694 (2.214591)	Acc@1  94.34 ( 95.14)	Acc@5  95.51 ( 95.90)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.05 min: 10.00 max: 28.66
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:43:19.157 | INFO     | utils.utils:display:55 - Epoch: [20][200/958]	Time  0.643 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 796.25 (800.45)	images/s	Loss 9.037 (7.877)	L_ID 6.818 (5.663)	L_mag 2.218668 (2.214677)	Acc@1  92.38 ( 95.18)	Acc@5  93.36 ( 95.91)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.09 min: 10.00 max: 27.54
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.51
+2022-12-28 10:44:23.040 | INFO     | utils.utils:display:55 - Epoch: [20][300/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 799.94 (800.80)	images/s	Loss 7.507 (7.860)	L_ID 5.291 (5.647)	L_mag 2.215765 (2.213334)	Acc@1  95.51 ( 95.26)	Acc@5  95.70 ( 95.96)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.10 min: 10.00 max: 31.38
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:45:26.962 | INFO     | utils.utils:display:55 - Epoch: [20][400/958]	Time  0.632 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 809.58 (800.85)	images/s	Loss 8.592 (7.856)	L_ID 6.386 (5.644)	L_mag 2.205658 (2.212560)	Acc@1  93.16 ( 95.26)	Acc@5  94.14 ( 95.95)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.13 min: 10.00 max: 31.11
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:46:30.902 | INFO     | utils.utils:display:55 - Epoch: [20][500/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 802.77 (800.84)	images/s	Loss 7.165 (7.851)	L_ID 4.946 (5.639)	L_mag 2.218821 (2.212019)	Acc@1  96.48 ( 95.27)	Acc@5  97.07 ( 95.97)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.11 min: 10.00 max: 29.77
+  [debug info]: margin mean: 0.47 min: 0.45 max: 0.52
+2022-12-28 10:47:34.838 | INFO     | utils.utils:display:55 - Epoch: [20][600/958]	Time  0.633 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 808.93 (800.84)	images/s	Loss 8.106 (7.844)	L_ID 5.895 (5.633)	L_mag 2.211135 (2.211322)	Acc@1  95.12 ( 95.29)	Acc@5  95.51 ( 95.98)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.16 min: 10.00 max: 29.03
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:48:38.789 | INFO     | utils.utils:display:55 - Epoch: [20][700/958]	Time  0.646 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 793.17 (800.80)	images/s	Loss 7.560 (7.848)	L_ID 5.352 (5.637)	L_mag 2.207678 (2.210651)	Acc@1  95.12 ( 95.30)	Acc@5  95.51 ( 95.99)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.16 min: 10.00 max: 29.89
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:49:42.704 | INFO     | utils.utils:display:55 - Epoch: [20][800/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.85 (800.84)	images/s	Loss 7.877 (7.854)	L_ID 5.675 (5.644)	L_mag 2.201713 (2.209913)	Acc@1  94.92 ( 95.27)	Acc@5  95.51 ( 95.97)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.19 min: 10.00 max: 29.63
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:50:46.619 | INFO     | utils.utils:display:55 - Epoch: [20][900/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.61 (800.87)	images/s	Loss 7.375 (7.856)	L_ID 5.188 (5.647)	L_mag 2.186461 (2.209282)	Acc@1  96.48 ( 95.26)	Acc@5  97.07 ( 95.97)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.22 min: 10.00 max: 29.20
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+ : save pth for epoch 21
+2022-12-28 10:51:25.185 | INFO     | utils.utils:display:55 - Epoch: [21][  0/958]	Time  0.780 ( 0.780)	Data  0.511 ( 0.511)	ThroughPut 656.53 (656.53)	images/s	Loss 8.919 (8.919)	L_ID 6.712 (6.712)	L_mag 2.206279 (2.206279)	Acc@1  92.77 ( 92.77)	Acc@5  93.75 ( 93.75)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.19 min: 10.00 max: 27.72
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 10:52:29.000 | INFO     | utils.utils:display:55 - Epoch: [21][100/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.009)	ThroughPut 801.24 (801.16)	images/s	Loss 7.999 (7.701)	L_ID 5.808 (5.501)	L_mag 2.190115 (2.200164)	Acc@1  94.73 ( 95.38)	Acc@5  95.70 ( 96.05)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.23 min: 10.00 max: 29.09
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:53:32.826 | INFO     | utils.utils:display:55 - Epoch: [21][200/958]	Time  0.633 ( 0.639)	Data  0.000 ( 0.007)	ThroughPut 808.61 (801.71)	images/s	Loss 7.149 (7.698)	L_ID 4.956 (5.498)	L_mag 2.193044 (2.200486)	Acc@1  96.09 ( 95.41)	Acc@5  96.68 ( 96.08)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.24 min: 10.00 max: 29.52
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:54:36.674 | INFO     | utils.utils:display:55 - Epoch: [21][300/958]	Time  0.638 ( 0.639)	Data  0.000 ( 0.006)	ThroughPut 802.00 (801.75)	images/s	Loss 8.186 (7.720)	L_ID 5.987 (5.520)	L_mag 2.198817 (2.200355)	Acc@1  93.75 ( 95.38)	Acc@5  94.34 ( 96.04)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.24 min: 10.00 max: 27.35
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 10:55:40.549 | INFO     | utils.utils:display:55 - Epoch: [21][400/958]	Time  0.636 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 805.09 (801.73)	images/s	Loss 8.052 (7.735)	L_ID 5.854 (5.536)	L_mag 2.197855 (2.199343)	Acc@1  94.34 ( 95.38)	Acc@5  95.51 ( 96.06)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.25 min: 10.00 max: 30.97
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:56:44.426 | INFO     | utils.utils:display:55 - Epoch: [21][500/958]	Time  0.632 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 810.51 (801.70)	images/s	Loss 7.663 (7.733)	L_ID 5.459 (5.534)	L_mag 2.204718 (2.198620)	Acc@1  95.51 ( 95.37)	Acc@5  95.90 ( 96.05)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.24 min: 10.00 max: 29.05
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:57:48.349 | INFO     | utils.utils:display:55 - Epoch: [21][600/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 796.80 (801.58)	images/s	Loss 7.963 (7.741)	L_ID 5.752 (5.542)	L_mag 2.210966 (2.198370)	Acc@1  96.68 ( 95.36)	Acc@5  97.07 ( 96.04)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.23 min: 10.00 max: 29.51
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:58:52.245 | INFO     | utils.utils:display:55 - Epoch: [21][700/958]	Time  0.635 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 805.87 (801.54)	images/s	Loss 8.084 (7.741)	L_ID 5.888 (5.543)	L_mag 2.195191 (2.197574)	Acc@1  95.31 ( 95.38)	Acc@5  95.70 ( 96.05)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.28 min: 10.00 max: 31.21
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 10:59:56.153 | INFO     | utils.utils:display:55 - Epoch: [21][800/958]	Time  0.642 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 797.69 (801.50)	images/s	Loss 8.204 (7.751)	L_ID 6.001 (5.554)	L_mag 2.203014 (2.196912)	Acc@1  94.34 ( 95.36)	Acc@5  95.31 ( 96.03)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.28 min: 10.00 max: 30.13
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:01:00.030 | INFO     | utils.utils:display:55 - Epoch: [21][900/958]	Time  0.637 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 804.09 (801.50)	images/s	Loss 7.744 (7.759)	L_ID 5.550 (5.563)	L_mag 2.194329 (2.196259)	Acc@1  95.12 ( 95.35)	Acc@5  95.90 ( 96.02)	LR 0.0010 (0.0010)
+  [debug info]: x_norm mean: 17.30 min: 10.00 max: 28.89
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+ : save pth for epoch 22
+2022-12-28 11:01:38.695 | INFO     | utils.utils:display:55 - Epoch: [22][  0/958]	Time  0.885 ( 0.885)	Data  0.629 ( 0.629)	ThroughPut 578.26 (578.26)	images/s	Loss 7.105 (7.105)	L_ID 4.912 (4.912)	L_mag 2.193833 (2.193833)	Acc@1  96.29 ( 96.29)	Acc@5  96.29 ( 96.29)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 27.12
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:02:42.644 | INFO     | utils.utils:display:55 - Epoch: [22][100/958]	Time  0.641 ( 0.642)	Data  0.000 ( 0.010)	ThroughPut 799.27 (798.56)	images/s	Loss 7.731 (7.658)	L_ID 5.547 (5.468)	L_mag 2.183562 (2.190042)	Acc@1  95.70 ( 95.26)	Acc@5  96.48 ( 96.00)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.34 min: 10.00 max: 29.79
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:03:46.569 | INFO     | utils.utils:display:55 - Epoch: [22][200/958]	Time  0.644 ( 0.641)	Data  0.000 ( 0.007)	ThroughPut 794.88 (799.73)	images/s	Loss 8.405 (7.656)	L_ID 6.190 (5.467)	L_mag 2.214572 (2.189766)	Acc@1  94.14 ( 95.32)	Acc@5  94.92 ( 96.00)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.26 min: 10.00 max: 29.58
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:04:50.492 | INFO     | utils.utils:display:55 - Epoch: [22][300/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 799.05 (800.17)	images/s	Loss 7.467 (7.619)	L_ID 5.279 (5.430)	L_mag 2.187861 (2.188966)	Acc@1  95.31 ( 95.38)	Acc@5  95.70 ( 96.06)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.32 min: 10.00 max: 29.66
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:05:54.444 | INFO     | utils.utils:display:55 - Epoch: [22][400/958]	Time  0.643 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 796.58 (800.28)	images/s	Loss 7.531 (7.602)	L_ID 5.347 (5.413)	L_mag 2.183997 (2.188926)	Acc@1  95.31 ( 95.42)	Acc@5  95.90 ( 96.11)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.33 min: 10.00 max: 27.99
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:06:58.409 | INFO     | utils.utils:display:55 - Epoch: [22][500/958]	Time  0.638 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 802.68 (800.31)	images/s	Loss 8.107 (7.599)	L_ID 5.900 (5.410)	L_mag 2.206519 (2.189002)	Acc@1  94.73 ( 95.43)	Acc@5  95.70 ( 96.11)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.27 min: 10.00 max: 29.62
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:08:02.348 | INFO     | utils.utils:display:55 - Epoch: [22][600/958]	Time  0.641 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 798.93 (800.39)	images/s	Loss 8.227 (7.601)	L_ID 6.020 (5.412)	L_mag 2.207002 (2.189014)	Acc@1  95.12 ( 95.43)	Acc@5  95.31 ( 96.10)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.27 min: 10.00 max: 30.10
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:09:06.279 | INFO     | utils.utils:display:55 - Epoch: [22][700/958]	Time  0.637 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 804.04 (800.47)	images/s	Loss 7.561 (7.606)	L_ID 5.356 (5.417)	L_mag 2.205554 (2.188943)	Acc@1  95.51 ( 95.43)	Acc@5  96.29 ( 96.11)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.28 min: 10.00 max: 28.10
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:10:10.203 | INFO     | utils.utils:display:55 - Epoch: [22][800/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 797.21 (800.52)	images/s	Loss 7.544 (7.610)	L_ID 5.358 (5.421)	L_mag 2.186044 (2.188859)	Acc@1  95.12 ( 95.41)	Acc@5  95.70 ( 96.09)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.33 min: 10.00 max: 31.15
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:11:14.126 | INFO     | utils.utils:display:55 - Epoch: [22][900/958]	Time  0.639 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 801.31 (800.58)	images/s	Loss 7.666 (7.607)	L_ID 5.474 (5.419)	L_mag 2.192024 (2.188767)	Acc@1  96.09 ( 95.42)	Acc@5  96.68 ( 96.11)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 31.69
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.53
+ : save pth for epoch 23
+2022-12-28 11:11:52.777 | INFO     | utils.utils:display:55 - Epoch: [23][  0/958]	Time  0.850 ( 0.850)	Data  0.603 ( 0.603)	ThroughPut 602.65 (602.65)	images/s	Loss 7.828 (7.828)	L_ID 5.618 (5.618)	L_mag 2.209276 (2.209276)	Acc@1  93.36 ( 93.36)	Acc@5  95.90 ( 95.90)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.28 min: 10.00 max: 30.51
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:12:56.801 | INFO     | utils.utils:display:55 - Epoch: [23][100/958]	Time  0.638 ( 0.642)	Data  0.000 ( 0.010)	ThroughPut 802.56 (797.75)	images/s	Loss 7.588 (7.639)	L_ID 5.411 (5.451)	L_mag 2.176547 (2.188409)	Acc@1  94.92 ( 95.17)	Acc@5  95.12 ( 95.90)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.35 min: 10.00 max: 30.14
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:14:00.653 | INFO     | utils.utils:display:55 - Epoch: [23][200/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.007)	ThroughPut 799.82 (799.81)	images/s	Loss 7.363 (7.580)	L_ID 5.193 (5.392)	L_mag 2.169793 (2.187437)	Acc@1  96.88 ( 95.34)	Acc@5  97.27 ( 96.04)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.37 min: 10.00 max: 32.94
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.53
+2022-12-28 11:15:04.557 | INFO     | utils.utils:display:55 - Epoch: [23][300/958]	Time  0.640 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 800.16 (800.28)	images/s	Loss 7.503 (7.596)	L_ID 5.325 (5.408)	L_mag 2.178023 (2.187912)	Acc@1  94.73 ( 95.39)	Acc@5  95.70 ( 96.08)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.35 min: 10.00 max: 28.51
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:16:08.427 | INFO     | utils.utils:display:55 - Epoch: [23][400/958]	Time  0.642 ( 0.640)	Data  0.000 ( 0.006)	ThroughPut 797.83 (800.61)	images/s	Loss 7.160 (7.587)	L_ID 4.990 (5.399)	L_mag 2.170193 (2.187811)	Acc@1  95.51 ( 95.40)	Acc@5  95.70 ( 96.09)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.39 min: 10.00 max: 30.43
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:17:12.357 | INFO     | utils.utils:display:55 - Epoch: [23][500/958]	Time  0.635 ( 0.640)	Data  0.000 ( 0.005)	ThroughPut 806.62 (800.68)	images/s	Loss 7.534 (7.594)	L_ID 5.353 (5.406)	L_mag 2.181368 (2.187805)	Acc@1  94.73 ( 95.40)	Acc@5  96.48 ( 96.08)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.34 min: 10.00 max: 27.88
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:18:16.222 | INFO     | utils.utils:display:55 - Epoch: [23][600/958]	Time  0.639 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 801.09 (800.85)	images/s	Loss 7.145 (7.594)	L_ID 4.956 (5.407)	L_mag 2.189120 (2.187943)	Acc@1  95.90 ( 95.40)	Acc@5  96.68 ( 96.08)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.33 min: 10.00 max: 28.52
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:19:20.102 | INFO     | utils.utils:display:55 - Epoch: [23][700/958]	Time  0.641 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 798.26 (800.94)	images/s	Loss 8.977 (7.600)	L_ID 6.775 (5.412)	L_mag 2.201983 (2.187872)	Acc@1  93.16 ( 95.40)	Acc@5  93.75 ( 96.09)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.29 min: 10.00 max: 30.11
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:20:23.999 | INFO     | utils.utils:display:55 - Epoch: [23][800/958]	Time  0.643 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 796.05 (801.00)	images/s	Loss 7.975 (7.595)	L_ID 5.796 (5.407)	L_mag 2.179122 (2.187963)	Acc@1  93.36 ( 95.42)	Acc@5  94.34 ( 96.10)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.36 min: 10.00 max: 30.75
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:21:28.052 | INFO     | utils.utils:display:55 - Epoch: [23][900/958]	Time  0.640 ( 0.639)	Data  0.000 ( 0.005)	ThroughPut 799.39 (800.82)	images/s	Loss 8.038 (7.595)	L_ID 5.843 (5.407)	L_mag 2.195616 (2.187958)	Acc@1  94.73 ( 95.41)	Acc@5  95.51 ( 96.10)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 29.85
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+ : save pth for epoch 24
+2022-12-28 11:22:06.857 | INFO     | utils.utils:display:55 - Epoch: [24][  0/958]	Time  0.864 ( 0.864)	Data  0.603 ( 0.603)	ThroughPut 592.66 (592.66)	images/s	Loss 7.837 (7.837)	L_ID 5.650 (5.650)	L_mag 2.187057 (2.187057)	Acc@1  94.14 ( 94.14)	Acc@5  94.53 ( 94.53)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.34 min: 10.00 max: 27.68
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:23:10.968 | INFO     | utils.utils:display:55 - Epoch: [24][100/958]	Time  0.643 ( 0.643)	Data  0.000 ( 0.010)	ThroughPut 796.46 (796.81)	images/s	Loss 7.743 (7.612)	L_ID 5.550 (5.425)	L_mag 2.193458 (2.186639)	Acc@1  95.31 ( 95.37)	Acc@5  95.90 ( 96.13)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 31.08
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:24:15.106 | INFO     | utils.utils:display:55 - Epoch: [24][200/958]	Time  0.642 ( 0.642)	Data  0.000 ( 0.007)	ThroughPut 797.05 (797.54)	images/s	Loss 7.753 (7.548)	L_ID 5.574 (5.361)	L_mag 2.178601 (2.186832)	Acc@1  94.92 ( 95.52)	Acc@5  95.90 ( 96.24)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.36 min: 10.00 max: 27.75
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.51
+2022-12-28 11:25:19.255 | INFO     | utils.utils:display:55 - Epoch: [24][300/958]	Time  0.644 ( 0.642)	Data  0.000 ( 0.006)	ThroughPut 794.93 (797.73)	images/s	Loss 7.258 (7.553)	L_ID 5.051 (5.366)	L_mag 2.207042 (2.186946)	Acc@1  95.70 ( 95.48)	Acc@5  96.68 ( 96.19)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.29 min: 10.00 max: 30.10
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:26:23.413 | INFO     | utils.utils:display:55 - Epoch: [24][400/958]	Time  0.640 ( 0.642)	Data  0.000 ( 0.006)	ThroughPut 799.87 (797.82)	images/s	Loss 7.870 (7.563)	L_ID 5.670 (5.376)	L_mag 2.199630 (2.186869)	Acc@1  95.31 ( 95.47)	Acc@5  95.31 ( 96.18)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 28.75
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:27:27.566 | INFO     | utils.utils:display:55 - Epoch: [24][500/958]	Time  0.640 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 799.92 (797.88)	images/s	Loss 8.221 (7.577)	L_ID 6.021 (5.390)	L_mag 2.199489 (2.187147)	Acc@1  94.14 ( 95.43)	Acc@5  95.12 ( 96.14)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.31 min: 10.00 max: 30.13
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:28:31.719 | INFO     | utils.utils:display:55 - Epoch: [24][600/958]	Time  0.640 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 799.75 (797.92)	images/s	Loss 8.026 (7.571)	L_ID 5.834 (5.384)	L_mag 2.192400 (2.187073)	Acc@1  95.12 ( 95.45)	Acc@5  95.70 ( 96.15)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.33 min: 10.00 max: 29.29
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:29:35.880 | INFO     | utils.utils:display:55 - Epoch: [24][700/958]	Time  0.643 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 796.77 (797.93)	images/s	Loss 7.680 (7.579)	L_ID 5.488 (5.392)	L_mag 2.191631 (2.186849)	Acc@1  95.12 ( 95.43)	Acc@5  95.51 ( 96.12)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.33 min: 10.00 max: 29.81
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+2022-12-28 11:30:40.024 | INFO     | utils.utils:display:55 - Epoch: [24][800/958]	Time  0.643 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 796.65 (797.96)	images/s	Loss 7.162 (7.577)	L_ID 4.972 (5.390)	L_mag 2.189290 (2.186846)	Acc@1  96.88 ( 95.45)	Acc@5  97.27 ( 96.14)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.34 min: 10.00 max: 31.47
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.53
+2022-12-28 11:31:44.182 | INFO     | utils.utils:display:55 - Epoch: [24][900/958]	Time  0.642 ( 0.642)	Data  0.000 ( 0.005)	ThroughPut 797.43 (797.97)	images/s	Loss 7.977 (7.573)	L_ID 5.785 (5.386)	L_mag 2.191370 (2.186742)	Acc@1  94.53 ( 95.46)	Acc@5  95.31 ( 96.15)	LR 0.0001 (0.0001)
+  [debug info]: x_norm mean: 17.34 min: 10.00 max: 29.59
+  [debug info]: margin mean: 0.48 min: 0.45 max: 0.52
+ : save pth for epoch 25
